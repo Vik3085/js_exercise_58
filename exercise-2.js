@@ -16,20 +16,21 @@ const persons = [
     firstName: 'Giovanni',
     lastName: 'Rossi',
     age: 35
-  },
+  }
 ];
 
-function fetchPersonById(id) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (persons === id) {
-        // resolve(id);
-        return resolve(persons.find(item => item.id === id));
-      } else {
-        return reject(new Error('Errore'));
-      }
-      }, 1000)
-  });
-}
 
-fetchPersonById(4).then((person) => console.log(person));
+function fetchPersonById(id) {
+  return new Promise ((resolve, reject) => {
+    setTimeout(() => {
+      if(id in persons){
+        resolve(persons.find(person => person.id === id));
+      } else {
+        reject (new Error ("Id non presente"));
+      }
+    }, 1000)
+  })
+  }
+
+
+fetchPersonById(2).then((person) => console.log(person));
