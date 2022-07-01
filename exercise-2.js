@@ -32,5 +32,4 @@ function fetchPersonById(id) {
   })
   }
 
-
 fetchPersonById(2).then((person) => console.log(person));
